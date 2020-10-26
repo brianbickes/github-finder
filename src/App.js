@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navbar from './components/layout/Navbar';
-import UserItem from './components/users/UserItem';
+import Users from './components/users/Users'
 
 class App extends Component {
   render(){ 
@@ -9,7 +9,10 @@ class App extends Component {
      return (
   <div className="App">
     <Navbar  />
-    <UserItem />
+    <div className= "container">
+      <Users />
+    </div>
+    
     </div>
   );
   }
