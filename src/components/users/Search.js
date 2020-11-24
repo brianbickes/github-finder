@@ -5,14 +5,18 @@ export class Search extends Component {
     text: '',
   };
 
-  onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+
+/*On Submit is being used as an arrow function with 'e' being passed in and using preventDefault. Console.log confirms logging of text is functional */ 
+  onSubmit = e => {
+      e.preventDefault(); 
+      console.log(this.state.text);
   };
 
   render() {
     return (
       <div>
-        <form className='form'>
+        <form onSubmit={this.onSubmit} className='form'>
           <input
             type='text'
             name='text'
