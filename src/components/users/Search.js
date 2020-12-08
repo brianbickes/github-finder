@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class Search extends Component {
   state = {
     text: '',
   };
 
-  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
-
-/*On Submit is being used as an arrow function with 'e' being passed in and using preventDefault. Console.log confirms logging of text is functional */ 
-  onSubmit = e => {
-      e.preventDefault(); 
-      console.log(this.state.text);
+  static propTypes = {
+    searchUsers: PropTypes.func.isRequired
+  };
+  
+  /*On Submit is being used as an arrow function with 'e' being passed in and using preventDefault. Console.log confirms logging of text is functional */
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.searchUsers(this.state.text);
+    this.setState({ text: '' });
   };
 
+  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+  
   render() {
     return (
       <div>
